@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="500" height="500" viewBox="-250.0 -250.0 500 500">
+<defs>
+<linearGradient x1="134.88717589235625" y1="214.45689387074933" x2="134.88717589235625" y2="194.45689387074933" gradientUnits="userSpaceOnUse" id="d0">
+<stop offset="0" stop-color="#aaccff" stop-opacity="1" />
+<stop offset="1" stop-color="#ffffff" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="248.3722405839505" y1="197.6857170486243" x2="248.3722405839505" y2="175.0190503819576" gradientUnits="userSpaceOnUse" id="d1">
+<stop offset="0" stop-color="#7b4c00" stop-opacity="1" />
+<stop offset="1" stop-color="#dd8800" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="-70.08061705683338" y1="75.25517443555809" x2="-70.08061705683338" y2="49.921841102224754" gradientUnits="userSpaceOnUse" id="d2">
+<stop offset="0" stop-color="#1a1a1a" stop-opacity="1" />
+<stop offset="1" stop-color="#2e2e2e" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="197.22717884480522" y1="95.55789293359503" x2="197.22717884480522" y2="70.22455960026168" gradientUnits="userSpaceOnUse" id="d3">
+<stop offset="0" stop-color="#0049e4" stop-opacity="1" />
+<stop offset="1" stop-color="#9bbbfe" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="-21.29497390920733" y1="243.36361986816533" x2="-21.29497390920733" y2="216.69695320149864" gradientUnits="userSpaceOnUse" id="d4">
+<stop offset="0" stop-color="#d40000" stop-opacity="1" />
+<stop offset="1" stop-color="#ff7e7e" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="-124.4783775095003" y1="78.43052397409656" x2="-124.4783775095003" y2="54.43052397409656" gradientUnits="userSpaceOnUse" id="d5">
+<stop offset="0" stop-color="#22c147" stop-opacity="1" />
+<stop offset="1" stop-color="#a8efb9" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="-46.55681216053219" y1="-83.96377146507812" x2="-46.55681216053219" y2="-110.63043813174478" gradientUnits="userSpaceOnUse" id="d6">
+<stop offset="0" stop-color="#565356" stop-opacity="1" />
+<stop offset="1" stop-color="#999699" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="183.65777725125946" y1="222.31389261365774" x2="183.65777725125946" y2="196.98055928032443" gradientUnits="userSpaceOnUse" id="d7">
+<stop offset="0" stop-color="#24cf80" stop-opacity="1" />
+<stop offset="1" stop-color="#c1f4dc" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="-78.12740556724657" y1="64.28986023198753" x2="-78.12740556724657" y2="37.62319356532087" gradientUnits="userSpaceOnUse" id="d8">
+<stop offset="0" stop-color="#f0d100" stop-opacity="1" />
+<stop offset="1" stop-color="#fff4b1" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="51.55038135562546" y1="37.099827062029846" x2="51.55038135562546" y2="-2.9001729379701544" gradientUnits="userSpaceOnUse" id="d9">
+<stop offset="0" stop-color="#a3e300" stop-opacity="1" />
+<stop offset="1" stop-color="#e2ff99" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="149.56372032374452" y1="249.40715648996502" x2="149.56372032374452" y2="224.0738231566317" gradientUnits="userSpaceOnUse" id="d10">
+<stop offset="0" stop-color="#c75a98" stop-opacity="1" />
+<stop offset="1" stop-color="#ffffff" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="39.56479273717724" y1="-58.83958142385668" x2="39.56479273717724" y2="-84.17291475719001" gradientUnits="userSpaceOnUse" id="d11">
+<stop offset="0" stop-color="#61d0ff" stop-opacity="1" />
+<stop offset="1" stop-color="#ffffff" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="-186.5136614673552" y1="262.52413890946343" x2="-186.5136614673552" y2="221.1908055761301" gradientUnits="userSpaceOnUse" id="d12">
+<stop offset="0" stop-color="#540606" stop-opacity="1" />
+<stop offset="1" stop-color="#970a0a" stop-opacity="1" />
+</linearGradient>
+<linearGradient x1="-25.13455038907904" y1="-205.8478073490561" x2="-25.13455038907904" y2="-249.8478073490561" gradientUnits="userSpaceOnUse" id="d13">
+<stop offset="0" stop-color="#6d2088" stop-opacity="1" />
+<stop offset="1" stop-color="#b656d7" stop-opacity="1" />
+</linearGradient>
+</defs>
+<circle cx="134.88717589235625" cy="204.45689387074933" r="15" fill="url(#d0)" />
+<text x="134.88717589235625" y="204.45689387074933" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">H</text>
+<circle cx="248.3722405839505" cy="186.35238371529096" r="17" fill="url(#d1)" />
+<text x="248.3722405839505" y="186.35238371529096" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">B</text>
+<circle cx="-70.08061705683338" cy="62.58850776889142" r="19" fill="url(#d2)" />
+<text x="-70.08061705683338" y="62.58850776889142" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">C</text>
+<circle cx="197.22717884480522" cy="82.89122626692836" r="19" fill="url(#d3)" />
+<text x="197.22717884480522" y="82.89122626692836" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">N</text>
+<circle cx="-21.29497390920733" cy="230.030286534832" r="20" fill="url(#d4)" />
+<text x="-21.29497390920733" y="230.030286534832" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">O</text>
+<circle cx="-124.4783775095003" cy="66.43052397409656" r="18" fill="url(#d5)" />
+<text x="-124.4783775095003" y="66.43052397409656" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">F</text>
+<circle cx="-46.55681216053219" cy="-97.29710479841145" r="20" fill="url(#d6)" />
+<text x="-46.55681216053219" y="-97.29710479841145" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">Si</text>
+<circle cx="183.65777725125946" cy="209.64722594699109" r="19" fill="url(#d7)" />
+<text x="183.65777725125946" y="209.64722594699109" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">P</text>
+<circle cx="-78.12740556724657" cy="50.956526898654204" r="20" fill="url(#d8)" />
+<text x="-78.12740556724657" y="50.956526898654204" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">S</text>
+<circle cx="51.55038135562546" cy="17.099827062029846" r="30" fill="url(#d9)" />
+<text x="51.55038135562546" y="17.099827062029846" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">Cl</text>
+<circle cx="149.56372032374452" cy="236.74048982329836" r="19" fill="url(#d10)" />
+<text x="149.56372032374452" y="236.74048982329836" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">As</text>
+<circle cx="39.56479273717724" cy="-71.50624809052334" r="19" fill="url(#d11)" />
+<text x="39.56479273717724" y="-71.50624809052334" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">Se</text>
+<circle cx="-186.5136614673552" cy="241.85747224279675" r="31" fill="url(#d12)" />
+<text x="-186.5136614673552" y="241.85747224279675" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">Br</text>
+<circle cx="-25.13455038907904" cy="-227.8478073490561" r="33" fill="url(#d13)" />
+<text x="-25.13455038907904" y="-227.8478073490561" font-size="20" text-anchor="middle" font-family="FreeSans" font-weight="bold" dy="0em">I</text>
+</svg>
