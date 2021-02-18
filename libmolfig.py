@@ -2,7 +2,8 @@
 # -*- coding: iso-8859-15 -*-
 
 from colorsys import rgb_to_hls, hls_to_rgb
-import drawSvg as draw
+#import drawSvg as draw
+import svgwrite
 import numpy as np
 from subprocess import call
 
@@ -40,30 +41,53 @@ def lighten_color(color, factor=0.1):
 def darken_color(color, factor=0.1):
     return adjust_color_lightness(color, 1-factor)
 
+def format_color(color):
+    return 'rgb({})'.format(','.join(map(str, color)))
+
 def create_atom(drawing, element='C', pos=(0,0)):
     px, py = pos
-    rad = atoms[element]['radius']
+    radius = atoms[element]['radius']
     ed = atoms[element]
-    main_color = rgbhex(ed['col'])
-    brighter_color = rgbhex(lighten_color(ed['col'], 0.8))
+    main_color = format_color(ed['col'])
+    brighter_color = format_color(lighten_color(ed['col'], 0.8))
 
     # gradients
-    main_gradient = draw.LinearGradient(px+0, py-rad/1.5, px+0, py+rad/1.5)
-    main_gradient.addStop(0, main_color, 1)
-    main_gradient.addStop(1, brighter_color, 1)
+    main_gradient = drawing.linearGradient((0,0), (0,1))
+    main_gradient.add_stop_color(0, brighter_color)
+    main_gradient.add_stop_color(1, main_color)
+    drawing.defs.add(main_gradient)
+    main_gradient_paintsever = main_gradient.get_paint_server(default='currentColor')
+
+    upper_glow_gradient = drawing.linearGradient((0,0), (0,1))
+    upper_glow_gradient.add_stop_color(0, 'white')
+    upper_glow_gradient.add_stop_color(0.75, 'white', 0)
+    drawing.defs.add(upper_glow_gradient)
+    upper_glow_gradient_paintsever = upper_glow_gradient.get_paint_server(default='currentColor')
+
+    # effects
+    blur = drawing.defs.add(drawing.filter())
+    blur.feGaussianBlur(in_='SourceGraphic', stdDeviation=3)
+    blur_filter = blur.get_funciri()
 
     # shapes
-    main_circle = draw.Circle(px, py, atoms[element]['radius'], fill=main_gradient)
-    drawing.append(main_circle)
+    main_circle = drawing.circle(pos, radius, fill=main_gradient_paintsever)
+    drawing.add(main_circle)
+    center_blur = drawing.ellipse(pos, (radius*0.6, radius*0.4),
+                                  fill=brighter_color, fill_opacity=0.6,
+                                  filter=blur_filter)
+    drawing.add(center_blur)
+    upper_glow = drawing.ellipse((px, py-radius*0.37), (radius*0.8, radius*0.55),
+                                 fill=upper_glow_gradient_paintsever)
+    drawing.add(upper_glow)
 
     # label
-    label = draw.Text(element, x=px, y=py, text_anchor='middle',
-                      font_family='FreeSans', font_weight='bold', fontSize=20)
-    drawing.append(label)
+    #label = draw.Text(element, x=px, y=py, text_anchor='middle',
+    #                  font_family='FreeSans', font_weight='bold', fontSize=20)
+    #drawing.append(label)
 
 
 if __name__ == '__main__':
-    d = draw.Drawing(500, 500, origin='center', displayInline=False)
+    d = svgwrite.Drawing(filename='images/first_test.svg')
     for key in atoms:
         create_atom(d, key, np.random.uniform((-250,-250), (250,250), 2))
-    d.saveSvg('images/first_test.svg')
+    d.save()
