@@ -475,7 +475,7 @@
        xlink:href="#linearGradient6453"
        id="radialGradient7219"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.1104399,-0.05601158,0.02536957,0.80856264,-52.258904,84.760519)"
+       gradientTransform="matrix(1.1203238,0.0691493,0.02559538,-0.998214,-126.79861,574.13425)"
        cx="398.73776"
        cy="303.77893"
        fx="398.73776"
@@ -493,19 +493,6 @@
          offset="1"
          style="stop-color:#df4946;stop-opacity:1" />
     </linearGradient>
-    <filter
-       id="filter4185-93"
-       height="3.3460553"
-       y="-1.1730276"
-       width="2.1164013"
-       x="-0.55820063"
-       inkscape:collect="always"
-       color-interpolation-filters="sRGB">
-      <feGaussianBlur
-         id="feGaussianBlur4187-1"
-         stdDeviation="13.806465"
-         inkscape:collect="always" />
-    </filter>
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5977"
@@ -1064,17 +1051,19 @@
        y1="301.92294"
        x2="398.93594"
        y2="338.38708" />
-    <radialGradient
+    <filter
        inkscape:collect="always"
-       xlink:href="#linearGradient6453"
-       id="radialGradient1115"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.1203238,0.0691493,0.02559538,-0.998214,292.89303,70.931018)"
-       cx="398.73776"
-       cy="303.77893"
-       fx="398.73776"
-       fy="303.77893"
-       r="32.316723" />
+       style="color-interpolation-filters:sRGB"
+       id="filter2014"
+       x="-0.09493774"
+       width="1.1898755"
+       y="-0.16304044"
+       height="1.3260809">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="2.3690791"
+         id="feGaussianBlur2016" />
+    </filter>
   </defs>
   <sodipodi:namedview
      showguides="false"
@@ -1090,11 +1079,11 @@
      fit-margin-top="0"
      showgrid="false"
      inkscape:document-rotation="0"
-     inkscape:current-layer="atom_O"
+     inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="22.25664"
-     inkscape:cx="179.30034"
-     inkscape:zoom="1.0312449"
+     inkscape:cy="62.889399"
+     inkscape:cx="105.57282"
+     inkscape:zoom="4.1249795"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1207,7 +1196,7 @@
          style="display:inline;fill:url(#linearGradient1797);fill-opacity:1;fill-rule:evenodd;stroke:none"
          inkscape:connector-curvature="0" />
       <path
-         style="display:none;opacity:0.699115;fill:#ff8080;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter5900-73)"
+         style="display:inline;opacity:0.699115;fill:#ff8080;fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter5900-73)"
          d="m -3.5355745,455.70556 c 0,-7.11899 -8.2754635,-12.89008 -18.4837635,-12.89008 -10.208301,0 -18.483764,5.77109 -18.483764,12.89008 0,7.11899 8.275463,12.89007 18.483764,12.89007 10.2083,0 18.4837635,-5.77108 18.4837635,-12.89007 z"
          id="path6504"
          inkscape:connector-curvature="0"
@@ -1215,9 +1204,8 @@
       <path
          inkscape:connector-curvature="0"
          id="path6506"
-         d="m 428.61659,325.99466 c 0,13.29444 -14.00229,-9.40301 -30.39446,-9.40301 -16.39217,0 -28.96684,22.69745 -28.96684,9.40301 0,-13.29444 13.28848,-24.07171 29.68065,-24.07171 16.39217,0 29.68065,10.77727 29.68065,24.07171 z"
-         style="display:inline;opacity:0.849557;fill:url(#radialGradient7219);fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4185-93)"
-         transform="matrix(1.0089009,0,0,-1.2345537,-73.609709,681.35468)"
+         d="m 358.35711,276.31775 c 0,-16.4127 -14.12693,11.60852 -30.665,11.60852 -16.53808,0 -29.22467,-28.02122 -29.22467,-11.60852 0,16.4127 13.40676,29.71782 29.94483,29.71782 16.53808,0 29.94484,-13.30512 29.94484,-29.71782 z"
+         style="display:inline;opacity:0.849557;fill:url(#radialGradient7219);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.11604;filter:url(#filter2014)"
          sodipodi:nodetypes="sssss"
          inkscape:label="lower_glow" />
       <path
@@ -1229,20 +1217,13 @@
          id="text1970-5-3-9-5"
          y="282.97147"
          x="314.99744"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.4979px;line-height:1.25;font-family:System-ui;-inkscape-font-specification:'System-ui, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.887449"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.4979px;line-height:1.25;font-family:System-ui;-inkscape-font-specification:'System-ui, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.887449"
          xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:FreeSans;-inkscape-font-specification:'FreeSans Semi-Bold';fill:#ffffff;stroke-width:0.887449"
-           y="0"
-           x="0"
+           y="282.97147"
+           x="314.99744"
            id="tspan1968-0-8-9-6"
            sodipodi:role="line">O</tspan></text>
-      <path
-         inkscape:connector-curvature="0"
-         id="path1113"
-         d="m 345.61709,175.57243 c 0,-16.4127 -14.12692,11.60853 -30.665,11.60853 -16.53807,0 -29.22467,-28.02123 -29.22467,-11.60853 0,16.4127 13.40676,29.71782 29.94484,29.71782 16.53807,0 29.94483,-13.30512 29.94483,-29.71782 z"
-         style="display:inline;opacity:1;fill:url(#radialGradient1115);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.11604"
-         sodipodi:nodetypes="sssss"
-         inkscape:label="lower_glow2" />
     </g>
     <g
        id="g6241-6"

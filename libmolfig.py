@@ -77,26 +77,37 @@ def create_atom(drawing, element='C', pos=(0,0)):
     upper_glow_gradient.add_stop_color(0.75, 'white', 0)
     drawing.defs.add(upper_glow_gradient)
     upper_glow_gradient_paintsever = upper_glow_gradient.get_paint_server(default='currentColor')
+    
+    lower_glow_gradient = drawing.radialGradient((0.5,0.5), 1)
+    lower_glow_gradient.add_stop_color(0, 'white')
+    lower_glow_gradient.add_stop_color(0.75, 'white', 0)
+    drawing.defs.add(lower_glow_gradient)
+    lower_glow_gradient_paintsever = lower_glow_gradient.get_paint_server(default='currentColor')
 
     # effects
-    blur = drawing.defs.add(drawing.filter())
-    blur.feGaussianBlur(in_='SourceGraphic', stdDeviation=3)
-    blur_filter = blur.get_funciri()
+    center_blur = drawing.defs.add(drawing.filter())
+    center_blur.feGaussianBlur(in_='SourceGraphic', stdDeviation=3)
+    center_blur_filter = center_blur.get_funciri()
+    
+    lower_blur = drawing.defs.add(drawing.filter())
+    lower_blur.feGaussianBlur(in_='SourceGraphic', stdDeviation=8)
+    lower_blur_filter = lower_blur.get_funciri()
 
     # shapes
     main_circle = drawing.circle(pos, radius, fill=main_gradient_paintsever)
     drawing.add(main_circle)
-    center_blur = drawing.ellipse(pos, (radius*0.6, radius*0.4),
+    center_ellipse = drawing.ellipse(pos, (radius*0.6, radius*0.4),
                                   fill=brighter_color, fill_opacity=0.6,
-                                  filter=blur_filter)
-    drawing.add(center_blur)
+                                  filter=center_blur_filter)
+    drawing.add(center_ellipse)
+
     upper_glow = drawing.ellipse((px, py-radius*0.37), (radius*0.8, radius*0.55),
                                  fill=upper_glow_gradient_paintsever)
     drawing.add(upper_glow)
+
     d = create_lower_glow(pos, radius)
-    lower_glow = drawing.path(
-            d=d,
-            fill='black')
+    lower_glow = drawing.path(d=d, fill=lower_glow_gradient_paintsever,
+                              filter=lower_blur_filter)
     drawing.add(lower_glow)
 
     # label
