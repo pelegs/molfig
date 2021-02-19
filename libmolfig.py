@@ -44,6 +44,20 @@ def darken_color(color, factor=0.1):
 def format_color(color):
     return 'rgb({})'.format(','.join(map(str, color)))
 
+def create_lower_glow(center, radius):
+    shape_start = 'm {},{} '.format(center[0]+radius*0.7, center[1])
+    shape_coords = np.array([
+            [0.0,-0.382667,-0.329,0.270667,-0.714,0.270667],
+            [-0.385,0.0,-0.681333,-0.653333,-0.681333,-0.270667],
+            [0.0,0.382667,0.312667,0.693,0.697667,0.693],
+            [0.385,0.0,0.697667,-0.310333,0.697667,-0.693],
+        ]) * radius
+    rows = 'c '
+    rows += ' '.join(['{},{} {},{} {},{}'.format(row[0], row[1], row[2], row[3], row[4], row[5])
+             for row in shape_coords])
+    rows += ' z'
+    return shape_start + rows
+
 def create_atom(drawing, element='C', pos=(0,0)):
     px, py = pos
     radius = atoms[element]['radius']
@@ -79,6 +93,11 @@ def create_atom(drawing, element='C', pos=(0,0)):
     upper_glow = drawing.ellipse((px, py-radius*0.37), (radius*0.8, radius*0.55),
                                  fill=upper_glow_gradient_paintsever)
     drawing.add(upper_glow)
+    d = create_lower_glow(pos, radius)
+    lower_glow = drawing.path(
+            d=d,
+            fill='black')
+    drawing.add(lower_glow)
 
     # label
     #label = draw.Text(element, x=px, y=py, text_anchor='middle',
@@ -88,6 +107,7 @@ def create_atom(drawing, element='C', pos=(0,0)):
 
 if __name__ == '__main__':
     d = svgwrite.Drawing(filename='images/first_test.svg')
+    #create_atom(d, 'H')
     for key in atoms:
         create_atom(d, key, np.random.uniform((-250,-250), (250,250), 2))
     d.save()

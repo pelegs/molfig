@@ -495,15 +495,15 @@
     </linearGradient>
     <filter
        id="filter4185-93"
-       height="1.2188728"
-       y="-0.10943639"
-       width="1.177511"
-       x="-0.088755488"
+       height="3.3460553"
+       y="-1.1730276"
+       width="2.1164013"
+       x="-0.55820063"
        inkscape:collect="always"
        color-interpolation-filters="sRGB">
       <feGaussianBlur
          id="feGaussianBlur4187-1"
-         stdDeviation="2.1952671"
+         stdDeviation="13.806465"
          inkscape:collect="always" />
     </filter>
     <linearGradient
@@ -1064,6 +1064,17 @@
        y1="301.92294"
        x2="398.93594"
        y2="338.38708" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6453"
+       id="radialGradient1115"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1203238,0.0691493,0.02559538,-0.998214,292.89303,70.931018)"
+       cx="398.73776"
+       cy="303.77893"
+       fx="398.73776"
+       fy="303.77893"
+       r="32.316723" />
   </defs>
   <sodipodi:namedview
      showguides="false"
@@ -1081,9 +1092,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="atom_O"
      inkscape:document-units="mm"
-     inkscape:cy="39.88335"
-     inkscape:cx="52.281382"
-     inkscape:zoom="5.833602"
+     inkscape:cy="22.25664"
+     inkscape:cx="179.30034"
+     inkscape:zoom="1.0312449"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1207,7 +1218,8 @@
          d="m 428.61659,325.99466 c 0,13.29444 -14.00229,-9.40301 -30.39446,-9.40301 -16.39217,0 -28.96684,22.69745 -28.96684,9.40301 0,-13.29444 13.28848,-24.07171 29.68065,-24.07171 16.39217,0 29.68065,10.77727 29.68065,24.07171 z"
          style="display:inline;opacity:0.849557;fill:url(#radialGradient7219);fill-opacity:1;fill-rule:evenodd;stroke:none;filter:url(#filter4185-93)"
          transform="matrix(1.0089009,0,0,-1.2345537,-73.609709,681.35468)"
-         sodipodi:nodetypes="sssss" />
+         sodipodi:nodetypes="sssss"
+         inkscape:label="lower_glow" />
       <path
          inkscape:connector-curvature="0"
          id="path6512"
@@ -1224,6 +1236,13 @@
            x="0"
            id="tspan1968-0-8-9-6"
            sodipodi:role="line">O</tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="path1113"
+         d="m 345.61709,175.57243 c 0,-16.4127 -14.12692,11.60853 -30.665,11.60853 -16.53807,0 -29.22467,-28.02123 -29.22467,-11.60853 0,16.4127 13.40676,29.71782 29.94484,29.71782 16.53807,0 29.94483,-13.30512 29.94483,-29.71782 z"
+         style="display:inline;opacity:1;fill:url(#radialGradient1115);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.11604"
+         sodipodi:nodetypes="sssss"
+         inkscape:label="lower_glow2" />
     </g>
     <g
        id="g6241-6"
