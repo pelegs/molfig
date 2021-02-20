@@ -110,13 +110,9 @@ def create_atom(drawing, element='C', pos=(0,0)):
                               filter=lower_blur_filter)
     drawing.add(lower_glow)
 
-    # label
-    #label = draw.Text(element, x=px, y=py, text_anchor='middle',
-    #                  font_family='FreeSans', font_weight='bold', fontSize=20)
-    #drawing.append(label)
     label = drawing.text(
         element,
-        (px, py+radius/2),
+        pos,
         style='text-anchor:middle;\
                vertical-align:middle;\
                font-family:FreeSans;\
