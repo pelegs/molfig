@@ -118,6 +118,7 @@ def create_atom(drawing, element='C', pos=(0,0)):
         element,
         (px, py+radius/2),
         style='text-anchor:middle;\
+               vertical-align:middle;\
                font-family:FreeSans;\
                font-weight:bold',
         font_size='22px',
