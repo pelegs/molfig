@@ -114,6 +114,16 @@ def create_atom(drawing, element='C', pos=(0,0)):
     #label = draw.Text(element, x=px, y=py, text_anchor='middle',
     #                  font_family='FreeSans', font_weight='bold', fontSize=20)
     #drawing.append(label)
+    label = drawing.text(
+        element,
+        (px, py+radius/2),
+        style='text-anchor:middle;\
+               font-family:FreeSans;\
+               font-weight:bold',
+        font_size='22px',
+        fill=ed['text_col'],
+    )
+    drawing.add(label)
 
 
 if __name__ == '__main__':
