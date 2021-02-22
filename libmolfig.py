@@ -6,23 +6,25 @@ from colorsys import rgb_to_hls, hls_to_rgb
 import svgwrite
 import numpy as np
 from subprocess import call
+import openbabel
+from openbabel import pybel
 
 
 atoms = {
-    'H':  {'radius': 15, 'col': (170, 204, 255), 'text_col': 'black'},
-    'B':  {'radius': 17, 'col': (123, 76, 0),    'text_col': 'white'},
-    'C':  {'radius': 19, 'col': (26, 26, 26),    'text_col': 'white'},
-    'N':  {'radius': 19, 'col': (0, 73, 228),    'text_col': 'white'},
-    'O':  {'radius': 20, 'col': (212, 0, 0),     'text_col': 'white'},
-    'F':  {'radius': 18, 'col': (34, 193, 71),   'text_col': 'white'},
-    'Si': {'radius': 20, 'col': (86, 83, 86),    'text_col': 'white'},
-    'P':  {'radius': 19, 'col': (36, 207, 128),  'text_col': 'black'},
-    'S':  {'radius': 20, 'col': (240, 209, 0),   'text_col': 'black'},
-    'Cl': {'radius': 30, 'col': (163, 227, 0),   'text_col': 'black'},
-    'As': {'radius': 19, 'col': (199, 90, 152),  'text_col': 'black'},
-    'Se': {'radius': 19, 'col': (97, 208, 255),  'text_col': 'black'},
-    'Br': {'radius': 31, 'col': (84, 6, 6),      'text_col': 'white'},
-    'I':  {'radius': 33, 'col': (109, 32, 136),  'text_col': 'white'},
+        1:  {'symbol': 'H',  'radius': 15, 'col': (170, 204, 255), 'text_col': 'black'},
+        4:  {'symbol': 'B',  'radius': 17, 'col': (123, 76, 0),    'text_col': 'white'},
+        6:  {'symbol': 'C',  'radius': 19, 'col': (26, 26, 26),    'text_col': 'white'},
+        7:  {'symbol': 'N',  'radius': 19, 'col': (0, 73, 228),    'text_col': 'white'},
+        8:  {'symbol': 'O',  'radius': 20, 'col': (212, 0, 0),     'text_col': 'white'},
+        9:  {'symbol': 'F',  'radius': 18, 'col': (34, 193, 71),   'text_col': 'white'},
+        14: {'symbol': 'Si', 'radius': 20, 'col': (86, 83, 86),    'text_col': 'white'},
+        15: {'symbol': 'P',  'radius': 19, 'col': (36, 207, 128),  'text_col': 'black'},
+        16: {'symbol': 'S',  'radius': 20, 'col': (240, 209, 0),   'text_col': 'black'},
+        17: {'symbol': 'Cl', 'radius': 30, 'col': (163, 227, 0),   'text_col': 'black'},
+        33: {'symbol': 'As', 'radius': 19, 'col': (199, 90, 152),  'text_col': 'black'},
+        34: {'symbol': 'Se', 'radius': 19, 'col': (97, 208, 255),  'text_col': 'black'},
+        35: {'symbol': 'Br', 'radius': 31, 'col': (84, 6, 6),      'text_col': 'white'},
+        53: {'symbol': 'I',  'radius': 33, 'col': (109, 32, 136),  'text_col': 'white'},
 }
 
 def rgbhex(c):
@@ -58,10 +60,12 @@ def create_lower_glow(center, radius):
     rows += ' z'
     return shape_start + rows
 
-def create_atom(drawing, element='C', pos=(0,0)):
-    px, py = pos
-    radius = atoms[element]['radius']
-    ed = atoms[element]
+def draw_atom(drawing, atomic_num=6, pos=(0,0), scale=1):
+    scaled_pos = np.array(pos) * scale
+    px, py = scaled_pos
+    symbol = atoms[atomic_num]['symbol']
+    radius = atoms[atomic_num]['radius']
+    ed = atoms[atomic_num]
     main_color = format_color(ed['col'])
     brighter_color = format_color(lighten_color(ed['col'], 0.8))
 
@@ -94,9 +98,9 @@ def create_atom(drawing, element='C', pos=(0,0)):
     lower_blur_filter = lower_blur.get_funciri()
 
     # shapes
-    main_circle = drawing.circle(pos, radius, fill=main_gradient_paintsever)
+    main_circle = drawing.circle(scaled_pos, radius, fill=main_gradient_paintsever)
     drawing.add(main_circle)
-    center_ellipse = drawing.ellipse(pos, (radius*0.6, radius*0.4),
+    center_ellipse = drawing.ellipse(scaled_pos, (radius*0.6, radius*0.4),
                                   fill=brighter_color, fill_opacity=0.6,
                                   filter=center_blur_filter)
     drawing.add(center_ellipse)
@@ -105,16 +109,16 @@ def create_atom(drawing, element='C', pos=(0,0)):
                                  fill=upper_glow_gradient_paintsever)
     drawing.add(upper_glow)
 
-    d = create_lower_glow(pos, radius)
+    d = create_lower_glow(scaled_pos, radius)
     lower_glow = drawing.path(d=d, fill=lower_glow_gradient_paintsever,
                               filter=lower_blur_filter)
     drawing.add(lower_glow)
 
     label = drawing.text(
-        element,
-        pos,
+        symbol,
+        scaled_pos,
         style='text-anchor:middle;\
-               vertical-align:middle;\
+               dominant-baseline:middle;\
                font-family:FreeSans;\
                font-weight:bold',
         font_size='22px',
@@ -125,7 +129,15 @@ def create_atom(drawing, element='C', pos=(0,0)):
 
 if __name__ == '__main__':
     d = svgwrite.Drawing(filename='images/first_test.svg')
-    #create_atom(d, 'H')
-    for key in atoms:
-        create_atom(d, key, np.random.uniform((-250,-250), (250,250), 2))
+    #create_atom(d, 1)
+    #for key in atoms:
+    #    create_atom(d, key, np.random.uniform((-250,-250), (250,250), 2))
+
+    mol = pybel.readstring('smi', 'CC(=O)C')
+    mol.addh()
+    mol.make2D()
+    for atom in mol.atoms:
+        atomic_num = atom.atomicnum
+        pos = atom.coords[:2]
+        draw_atom(d, atomic_num, pos, scale=75)
     d.save()
