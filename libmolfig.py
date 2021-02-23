@@ -8,6 +8,8 @@ import numpy as np
 from subprocess import call
 import openbabel
 from openbabel import pybel
+from sys import argv
+import os
 
 
 def rotMat(angle):
@@ -240,20 +242,42 @@ class Molecule:
     def rotate(self, angle=0):
         mat = rotMat(angle)
         for atom in self.atoms:
-            atom.pos = np.dot(mat, atom.pos)
+            relPos = atom.pos - self.center
+            new_relPos = np.dot(mat, relPos)
+            atom.pos = new_relPos + self.center
+
+    def create_bounding_box(self):
+        self.xmin = min([atom.pos[0]-atom.radius for atom in self.atoms])
+        self.xmax = max([atom.pos[0]+atom.radius for atom in self.atoms])
+        self.ymin = min([atom.pos[1]-atom.radius for atom in self.atoms])
+        self.ymax = max([atom.pos[1]+atom.radius for atom in self.atoms])
+        self.bounding_box = ((self.xmin, self.ymin), (self.xmax, self.ymax))
+        self.center = np.array([self.xmin+(self.xmax-self.xmin)/2,
+                                self.ymin+(self.ymax-self.ymin)/2])
+
+    def position_center(self, new_center):
+        trans = new_center - self.center
+        for atom in self.atoms:
+            atom.pos += trans
+        self.create_bounding_box()
 
 
 if __name__ == '__main__':
-    SCALE = 75
-    
-    mol = pybel.readstring('smi', 'CCN(CC)C(=O)[C@H]1CN([C@@H]2Cc3c[nH]c4c3c(ccc4)C2=C1)C')
+    SMILES = argv[1]
+    SCALE = int(argv[2])
+
+    mol = pybel.readstring('smi', SMILES)
     mol.addh()
     mol.make2D()
 
     molFigure = Molecule(scale=SCALE)
     molFigure.from_OBMol(mol)
+    molFigure.create_bounding_box()
+    #width, height = (molFigure.xmax-molFigure.xmin, molFigure.ymax-molFigure.ymin)
+    width, height = 1200, 1200
+    molFigure.position_center(np.array([width/2, height/2]))
 
-    d = svgwrite.Drawing(filename='images/first_test.svg')
-    molFigure.rotate(np.pi/3+np.pi/2)
+    d = svgwrite.Drawing(filename='video/frame{:03d}.svg'.format(frame),
+                         size=('{}px'.format(width), '{}px'.format(height)))
     molFigure.draw(d)
     d.save()
