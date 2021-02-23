@@ -14,12 +14,8 @@ mol.make2D()
 for i, atom in enumerate(mol.atoms):
     print(i+1, atom.atomicnum, atom.coords)
 
-obConversion = openbabel.OBConversion()
-obConversion.SetInAndOutFormats('smi', 'mdl')
-mol = openbabel.OBMol()
-obConversion.ReadString(mol, SMILES)
-mol.AddHydrogens()
-num_bonds = mol.NumBonds()
+mol.OBMol.AddHydrogens()
+num_bonds = mol.OBMol.NumBonds()
 for i in range(num_bonds):
-    bond = mol.GetBond(i)
+    bond = mol.OBMol.GetBond(i)
     print(i+1, bond.GetBondOrder(), bond.GetBeginAtomIdx(), bond.GetEndAtomIdx())
